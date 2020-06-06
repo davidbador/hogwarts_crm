@@ -1,3 +1,39 @@
+body {
+  background: url(https://i.pinimg.com/originals/59/2c/29/592c29f9c88063dc3870739854ab26e8.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-family: 'Metal Mania', cursive;
+}
+
+td {
+  color: white
+}
+
+.date {
+  margin-top: 5%;
+}
+
+.dateAmount {
+  font-size: 150%;
+}
+
+.pie {
+  margin-top: 5%;
+  background-color: rgba(255,0,0,0.2);
+}
+
+.delete {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.mainPageTitle {
+  font-size: 300%;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +41,10 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.hide {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

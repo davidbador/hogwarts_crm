@@ -1,8 +1,8 @@
 import React from 'react';
 import { register } from '../lib/UserFunctions';
-import { withRouter } from 'react-router-dom';
+import '../App.css';
 
-class Register extends React.Component {
+class addNewStudent extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -11,7 +11,6 @@ class Register extends React.Component {
             email: '',
             password: ''
         }
-
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -30,9 +29,14 @@ class Register extends React.Component {
             password: this.state.password
         }
 
-        register(newUser).then(res => {
-            this.props.history.push('/login')
-        })
+        if (newUser.firstName === '' || newUser.lastName === '' || newUser.email === '' || newUser.password === '') {
+            document.getElementById('danger').classList.remove('hide')
+            setTimeout(() => {document.getElementById('danger').classList.add('hide')}, 7000)
+        } else {
+            register(newUser)
+            document.getElementById('success').classList.remove('hide')
+            setTimeout(() => {document.getElementById('success').classList.add('hide')}, 7000)
+        }
     }
 
     render() {
@@ -59,8 +63,14 @@ class Register extends React.Component {
                                     <input type="password" className="form-control" name="password" placeholder="Enter Password" value={this.state.password} onChange={this.onChange} />
                                 </div>
                                 <button type="submit" className="btn btn-lg btn-primary btn-block">
-                                    Sign up
+                                    Add New Student
                                 </button>
+                                <div id="success" className="alert alert-success hide" role="alert">
+                                    New student added!
+                                </div>
+                                <div id="danger" className="alert alert-danger hide" role="alert">
+                                    Please make sure all fields are filled in!
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -70,4 +80,4 @@ class Register extends React.Component {
     }
 }
 
-export default withRouter(Register)
+export default addNewStudent

@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import MainPage from './components/MainPage';
-import Register from '/components/Register';
+import NavBar from './components/NavBar';
+import Profile from './components/Profile';
+import Register from './components/Register';
 import Login from './components/Login';
+import Students from './components/Students';
+import AddNewStudent from './components/AddNewStudent';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
   return (
-    <NavBar>
+    <Router>
       <div className="App">
         <NavBar />
         <Route exact path="/">
@@ -21,9 +25,21 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route exact path="/students">
+            <Students />
+          </Route>
+          <Route exact path="/add_student">
+            <AddNewStudent />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
         </div>
       </div>
-    </NavBar>
+    </Router>
   );
 }
 
